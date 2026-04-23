@@ -1,60 +1,83 @@
-# Market Risk and Portfolio Optimization
+# Portfolio Risk and Return Analysis (Brazilian Equities)
 
-This project presents a quantitative analysis of market risk using a portfolio of Brazilian equities, applying portfolio theory and risk management techniques.
+This project performs a quantitative analysis of portfolio risk and return using Brazilian equities, applying Modern Portfolio Theory and risk management techniques.
+
+The analysis is based on real market data from the last 12 months and includes portfolio optimization, Value at Risk (VaR), and Monte Carlo simulation.
+
+---
 
 ## Objective
 
-The goal is to evaluate the risk and return profile of a portfolio composed of 20 Brazilian stocks, using quantitative methods such as portfolio optimization, Value at Risk (VaR), Conditional Value at Risk (CVaR) and Monte Carlo simulation.
+Evaluate the risk-return profile of a diversified portfolio of Brazilian stocks, identifying optimal allocations and measuring risk through different methodologies.
+
+---
 
 ## Data
 
-- 20 liquid stocks from B3
+- 20 liquid Brazilian equities (B3)
 - Daily adjusted closing prices
-- Period: July 2023 – July 2024
+- Period: Last 12 months
 - Source: Yahoo Finance (yfinance)
+
+---
 
 ## Methodology
 
 The analysis includes:
 
-- Calculation of daily returns, mean returns and covariance matrix
+- Calculation of daily returns and covariance matrix
 - Simulation of 50,000 random portfolios
-- Identification of:
-  - Minimum variance portfolio
-  - Maximum return portfolio
-  - Maximum Sharpe ratio portfolio
-- Construction of the efficient frontier using numerical optimization (SLSQP)
+- Portfolio optimization using numerical methods (SLSQP):
+  - Minimum Variance Portfolio
+  - Maximum Sharpe Ratio Portfolio
+- Efficient frontier construction
+- Risk metrics:
+  - Parametric VaR (Normal distribution)
+  - Historical VaR
+  - Monte Carlo VaR
+  - CVaR (Expected Shortfall)
+  - Non-diversified VaR (benchmark)
 
-Risk measures:
+---
 
-- Parametric VaR (Normal distribution)
-- Historical VaR
-- Monte Carlo VaR
-- CVaR (Expected Shortfall)
-- Non-diversified VaR for comparison
+## Results (Last 12 Months)
 
-## Results
+- Parametric VaR (95%): R$ 13,067.93  
+- Historical VaR (95%): R$ 10,503.26  
+- Monte Carlo VaR (95%): R$ 11,484.23  
+- Monte Carlo CVaR (95%): R$ 14,747.89  
+- Non-diversified VaR: R$ 24,874.99  
 
-- Minimum variance portfolio achieved low volatility with diversified allocation
-- Maximum return portfolio concentrated in a single asset, illustrating the risk-return tradeoff
-- Maximum Sharpe portfolio balanced risk and return with concentration in a few key assets
-- VaR estimates ranged around R$ 10k–11k depending on the method
-- CVaR indicated more severe average losses in tail scenarios
-- Diversification reduced portfolio risk substantially compared to a non-diversified allocation
+Diversification reduced portfolio risk by approximately R$ 11,807.06, highlighting the importance of asset correlation in portfolio construction.
 
-## Key Insight
+---
 
-The project shows how diversification and covariance structure can materially reduce market risk, reinforcing the importance of portfolio construction in risk management.
+## Visualizations
 
-## Tools
+### Efficient Frontier
+![Efficient Frontier](images/efficient_frontier_current.png)
+
+### Monte Carlo Simulation
+![Monte Carlo Simulation](images/monte_carlo_distribution_current.png)
+
+---
+
+## Tools & Technologies
 
 - Python
-- numpy
-- pandas
-- matplotlib
-- scipy
+- NumPy
+- Pandas
+- Matplotlib
+- SciPy (optimization)
 - yfinance
 
-## Notes
+---
 
-This project was developed as part of a quantitative market risk study, combining financial theory with computational methods.
+## Key Insights
+
+- Portfolio diversification significantly reduces risk exposure
+- Different VaR methodologies produce consistent but distinct estimates
+- Monte Carlo simulation provides a more complete view of tail risk
+- Optimal portfolios concentrate in assets with strong risk-return tradeoff
+
+---
